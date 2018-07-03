@@ -11,10 +11,11 @@
  * [3.4. Middleware](./kos/Middleware.md)
  * [3.5. Util](./kos/Util.md)
 
-* [4. kos-form](./kos/Index.md)
+* [4. kos-form](./kos-form/Index.md)
  * [4.1. Form](./kos-form/Form.md)
- * [4.2. Field](./kos-form/Field.md)
- * [4.3. Validator](./kos-form/Validator.md)
- * [4.4. Rule](./kos-form/Rule.md)
- * [4.5. Display](./kos-form/Display.md)
+ * [4.2. FieldHOC](./kos-form/FieldHOC.md)
+ * [4.3. FormMiddleware](./kos-form/formmiddleware.md)
+ * [4.4. Validator](./kos-form/Validator.md)
+ * [4.5. Rule](./kos-form/Rule.md)
+ * [4.6. Display](./kos-form/Display.md)
 
