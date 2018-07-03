@@ -1,0 +1,520 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3. kos核心API · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Wrapper.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="QuickStart.html">
+            
+                <a href="QuickStart.html">
+            
+                    
+                    1. kos快速上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="extend.html">
+            
+                <a href="extend.html">
+            
+                    
+                    2. kos扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    3. kos-form快速上手
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter active" data-level="2.1" data-path="Index.html">
+            
+                <a href="Index.html">
+            
+                    
+                    3. kos核心API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="Wrapper.html">
+            
+                <a href="Wrapper.html">
+            
+                    
+                    3.1. Wrapper
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="Model.html">
+            
+                <a href="Model.html">
+            
+                    
+                    3.2. Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="View.html">
+            
+                <a href="View.html">
+            
+                    
+                    3.3. View
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="Middleware.html">
+            
+                <a href="Middleware.html">
+            
+                    
+                    3.4. Middleware
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="Util.html">
+            
+                <a href="Util.html">
+            
+                    
+                    3.5. Util
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="Index.html">
+            
+                <a href="Index.html">
+            
+                    
+                    4. kos-form
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../kos-form/Form.html">
+            
+                <a href="../kos-form/Form.html">
+            
+                    
+                    4.1. Form
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../kos-form/Field.html">
+            
+                <a href="../kos-form/Field.html">
+            
+                    
+                    4.2. Field
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../kos-form/Validator.html">
+            
+                <a href="../kos-form/Validator.html">
+            
+                    
+                    4.3. Validator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../kos-form/Rule.html">
+            
+                <a href="../kos-form/Rule.html">
+            
+                    
+                    4.4. Rule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../kos-form/Display.html">
+            
+                <a href="../kos-form/Display.html">
+            
+                    
+                    4.5. Display
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3. kos核心API</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6838;&#x5FC3;api">&#x6838;&#x5FC3;API</h1>
+<h2 id="&#x4E00;&#x3001;&#x4E1A;&#x52A1;&#x5E38;&#x7528;api">&#x4E00;&#x3001;&#x4E1A;&#x52A1;&#x5E38;&#x7528;API</h2>
+<h3 id="1&#x3001;kosusemiddleware">1&#x3001;KOS.use(middleware)</h3>
+<ul>
+<li><strong>&#x8BF4;&#x660E;&#xFF1A;</strong> &#x65B0;&#x589E;middleware</li>
+<li><strong>&#x53C2;&#x6570;&#xFF1A;</strong> <ul>
+<li><strong>middleware&#xFF1A;</strong> redux&#x4E2D;&#x95F4;&#x4EF6;</li>
+</ul>
+</li>
+<li><strong>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;</strong> &#x65E0;</li>
+</ul>
+<h3 id="2&#x3001;kosstartappcontainermain">2&#x3001;KOS.start(App,Container=&apos;#main&apos;)</h3>
+<ul>
+<li><strong>&#x8BF4;&#x660E;&#xFF1A;</strong> &#x542F;&#x52A8;&#x5E94;&#x7528;&#xFF0C;&#x5355;&#x9875;&#x5E94;&#x7528;&#x548C;&#x591A;&#x9875;&#x5E94;&#x7528;&#x5747;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;API</li>
+<li><p><strong>&#x53C2;&#x6570;&#xFF1A;</strong> </p>
+<ul>
+<li><strong>App&#xFF1A;</strong> React.Component</li>
+<li><strong>Container&#xFF1A;</strong> React.Component&#x6E32;&#x67D3;&#x5230;&#x7684;DOM&#x8282;&#x70B9;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;id&#x4E3A;main&#x7684;&#x8282;&#x70B9;</li>
+</ul>
+</li>
+<li><p><strong>&#x8BF4;&#x660E;&#xFF1A;</strong> &#x7528;&#x4E8E;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</p>
+</li>
+</ul>
+<h3 id="3&#x3001;koswrapperconfigcomponent">3&#x3001;KOS.Wrapper(config)(Component)</h3>
+<ul>
+<li><strong>&#x8BF4;&#x660E;&#xFF1A;</strong> &#x5C06;Component&#x4F7F;&#x7528;Wrapper&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x5305;&#x88C5;&#x540E;&#xFF0C;&#x6302;&#x5728;&#x5230;connect&#x4E0B;&#x9762;&#xFF0C;&#x7528;&#x6237;&#x5C06;Model&#x548C;View&#x8FDB;&#x884C;&#x5305;&#x88C5;</li>
+<li><strong>&#x53C2;&#x6570;&#xFF1A;</strong><ul>
+<li><strong>config.model&#xFF1A;</strong> &#x9700;&#x8981;&#x7ED1;&#x5B9A;&#x7684;model&#xFF0C;model&#x8BF4;&#x660E;&#x8BE6;&#x89C1; <a href="#">Model</a></li>
+<li><strong>config.autoLoad&#xFF1A;</strong> &#x5728;&#x6267;&#x884C;&#x5230;Wrapper&#x7684;componentDidMount&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x662F;&#x5426;&#x81EA;&#x52A8;&#x6267;&#x884C;Model.setup&#x65B9;&#x6CD5;</li>
+</ul>
+</li>
+<li><strong>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;</strong> &#x548C;Model&#x7ED3;&#x5408;&#x4E4B;&#x540E;&#x7684;&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;</li>
+<li><strong>&#x7279;&#x522B;&#x8BF4;&#x660E;&#xFF1A;</strong>
+&#x5728;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x901A;&#x5E38;&#x5EFA;&#x8BAE;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x662F;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> KOS form <span class="hljs-string">&apos;kos-core&apos;</span>;
+<span class="hljs-keyword">import</span> model <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./model&apos;</span>;
+
+@KOS.Wrapper({model})
+<span class="hljs-keyword">const</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span>(</span>{
+  render(){
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  }
+})
+</code></pre>
+<h2 id="&#x4E8C;&#x3001;&#x6269;&#x5C55;api">&#x4E8C;&#x3001;&#x6269;&#x5C55;API</h2>
+<p>&#x4EE5;&#x4E0B;API&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x5728;&#x6269;&#x5C55;kos&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x56DE;&#x4F7F;&#x7528;&#xFF0C;&#x5728;&#x65E5;&#x5E38;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x4E2D;&#x7528;&#x5230;&#x6982;&#x7387;&#x8F83;&#x4F4E;</p>
+<h3 id="1&#x3001;kosregistermodelmode">1&#x3001;KOS.registerModel(mode)</h3>
+<ul>
+<li><strong>&#x8BF4;&#x660E;&#xFF1A;</strong> &#x6CE8;&#x518C;model&#xFF0C;KOS.Wrapper&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;&#x4F1A;&#x8C03;&#x7528;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5904;&#x7406;&#x4E00;&#x4E9B;&#x901A;&#x7528;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;</li>
+<li><strong>&#x53C2;&#x6570;&#xFF1A;</strong> <ul>
+<li><strong>model&#xFF1A;</strong> &#x9700;&#x8981;&#x6CE8;&#x518C;&#x7684;model</li>
+</ul>
+</li>
+<li><strong>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;</strong> &#x8FD4;&#x56DE;Model&#x5BF9;&#x8C61;&#xFF0C;&#x6CE8;&#x610F;&#xFF1A;&#x6B64;&#x5904;&#x7684;Model&#x5BF9;&#x8C61;&#x975E;<code>KOS.Wrapper({model})</code>&#xFF0C;&#x65F6;&#x4F20;&#x5165;&#x7684;model</li>
+</ul>
+<h3 id="2&#x3001;kosgetmodelnamespace">2&#x3001;KOS.getModel(namespace)</h3>
+<ul>
+<li><strong>&#x8BF4;&#x660E;&#xFF1A;</strong> &#x6839;&#x636E;namespace&#x83B7;&#x53D6;Model&#x5BF9;&#x8C61;</li>
+<li><strong>&#x53C2;&#x6570;&#xFF1A;</strong> <ul>
+<li><strong>namepace&#xFF1A;</strong> &#x547D;&#x540D;&#x7A7A;&#x95F4;</li>
+</ul>
+</li>
+<li><strong>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;</strong> Model&#x5BF9;&#x8C61;&#xFF0C;&#x8BE6;&#x7EC6;&#x89C1;<a href="model.html">Model&#x8BF4;&#x660E;</a></li>
+</ul>
+<h3 id="3&#x3001;kosremovemodelnamespace">3&#x3001;KOS.removeModel(namespace)</h3>
+<ul>
+<li><strong>&#x8BF4;&#x660E;&#xFF1A;</strong> &#x6839;&#x636E;namespace&#x79FB;&#x9664;Model&#xFF0C;&#x8C28;&#x614E;&#x8C03;&#x7528;</li>
+<li><strong>&#x53C2;&#x6570;&#xFF1A;</strong> <ul>
+<li><strong>namepace&#xFF1A;</strong> &#x547D;&#x540D;&#x7A7A;&#x95F4;</li>
+</ul>
+</li>
+<li><strong>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;</strong> &#x65E0;</li>
+</ul>
+<h1 id="&#x4E8C;&#x3001;&#x66F4;&#x591A;&#x6269;&#x5C55;">&#x4E8C;&#x3001;&#x66F4;&#x591A;&#x6269;&#x5C55;</h1>
+<ul>
+<li>&#x5DE5;&#x5177;&#x7C7B;<a href="util.html">Util</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="Wrapper.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 3.1. Wrapper">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3. kos核心API","level":"2.1","depth":1,"next":{"title":"3.1. Wrapper","level":"2.1.1","depth":2,"path":"kos/Wrapper.md","ref":"./kos/Wrapper.md","articles":[]},"previous":{"title":"3. kos-form快速上手","level":"1.4","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos/Index.md","mtime":"2018-07-03T03:56:05.580Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-03T03:52:16.409Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
