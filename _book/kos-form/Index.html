@@ -285,25 +285,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.4" data-path="Validator.html">
-            
-                <a href="Validator.html">
-            
-                    
-                    4.4. Validator
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2.5" data-path="Rule.html">
+        <li class="chapter " data-level="2.2.4" data-path="Rule.html">
             
                 <a href="Rule.html">
             
                     
-                    4.5. Rule
+                    4.4. Rule
             
                 </a>
             
@@ -311,12 +298,38 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.6" data-path="Display.html">
+        <li class="chapter " data-level="2.2.5" data-path="Validator.html">
+            
+                <a href="Validator.html">
+            
+                    
+                    4.5. Validator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="DefaultRule.html">
+            
+                <a href="DefaultRule.html">
+            
+                    
+                    4.6. 内置Rule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="Display.html">
             
                 <a href="Display.html">
             
                     
-                    4.6. Display
+                    4.7. Display
             
                 </a>
             
@@ -418,6 +431,46 @@ kos.start(Component);
 <p>&#x6CE8;&#x610F;&#xFF1A;kos.start&#x5FC5;&#x987B;&#x5728;kos.use&#x4E2D;&#x95F4;&#x4EF6;&#x4E4B;&#x540E;&#x8FD0;&#x884C;</p>
 </blockquote>
 <p>&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x89C1;&#xFF1A;<a href="formmiddleware.html">Middleware</a></p>
+<h3 id="addrule">addRule</h3>
+<ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x6DFB;&#x52A0;&#x8868;&#x5355;&#x6821;&#x9A8C;&#x89C4;&#x5219;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;<ul>
+<li>name&#xFF1A;&#x6821;&#x9A8C;&#x89C4;&#x5219;&#x540D;&#x79F0;</li>
+<li>fn(getState,{field,value,formName},data)&#xFF1A;&#x68C0;&#x9A8C;&#x89C4;&#x5219;&#x51FD;&#x6570;&#x4F53;&#xFF0C;&#x51FD;&#x6570;&#x4F53;<ul>
+<li>getState&#xFF1A;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;state&#x6570;&#x636E;</li>
+<li>{field,value,formName}&#xFF1A;&#x5B57;&#x6BB5;&#x540D;&#x3001;&#x5B57;&#x6BB5;&#x503C;&#x3001;&#x8868;&#x5355;&#x540D;</li>
+<li>data&#xFF1A;&#x914D;&#x7F6E;&#x7684;&#x53C2;&#x6570;</li>
+</ul>
+</li>
+<li>help&#xFF1A;&#x6821;&#x9A8C;&#x89C4;&#x5219;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;<ul>
+<li>success&#xFF1A;&#x6821;&#x9A8C;&#x6B63;&#x786E;</li>
+<li>error&#xFF1A;&#x6821;&#x9A8C;&#x9519;&#x8BEF;</li>
+<li>warring&#xFF1A;&#x6821;&#x9A8C;&#x63D0;&#x793A;</li>
+<li>validating&#xFF1A;&#x6821;&#x9A8C;&#x4E2D;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65E0;</li>
+<li>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-js">addRule(<span class="hljs-string">&apos;maxLength&apos;</span>, (getState, { value, field }, data) =&gt; {
+  <span class="hljs-keyword">const</span> maxLength=data[<span class="hljs-number">0</span>];
+  <span class="hljs-keyword">if</span> (value) {
+    <span class="hljs-keyword">return</span> value.length &lt;= maxLength;
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+});
+</code></pre>
+<h3 id="removerule">removeRule</h3>
+<ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x79FB;&#x9664;&#x6821;&#x9A8C;&#x89C4;&#x5219;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;<ul>
+<li>name&#xFF1A;&#x6821;&#x9A8C;&#x5668;&#x540D;&#x79F0;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65E0;</li>
+</ul>
 
                                 
                                 </section>
@@ -461,7 +514,7 @@ kos.start(Component);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4. kos-form","level":"2.2","depth":1,"next":{"title":"4.1. Form","level":"2.2.1","depth":2,"path":"kos-form/Form.md","ref":"./kos-form/Form.md","articles":[]},"previous":{"title":"3.5. Util","level":"2.1.5","depth":2,"path":"kos/Util.md","ref":"./kos/Util.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/Index.md","mtime":"2018-07-03T08:37:59.391Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-03T03:52:16.409Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4. kos-form","level":"2.2","depth":1,"next":{"title":"4.1. Form","level":"2.2.1","depth":2,"path":"kos-form/Form.md","ref":"./kos-form/Form.md","articles":[]},"previous":{"title":"3.5. Util","level":"2.1.5","depth":2,"path":"kos/Util.md","ref":"./kos/Util.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/Index.md","mtime":"2018-07-04T06:35:45.651Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-04T05:34:27.883Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

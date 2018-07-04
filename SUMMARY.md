@@ -15,7 +15,8 @@
  * [4.1. Form](./kos-form/Form.md)
  * [4.2. FieldHOC](./kos-form/FieldHOC.md)
  * [4.3. FormMiddleware](./kos-form/formmiddleware.md)
- * [4.4. Validator](./kos-form/Validator.md)
- * [4.5. Rule](./kos-form/Rule.md)
- * [4.6. Display](./kos-form/Display.md)
+ * [4.4. Rule](./kos-form/Rule.md)
+ * [4.5. Validator](./kos-form/Validator.md)
+ * [4.6. 内置Rule](./kos-form/DefaultRule.md)
+ * [4.7. Display](./kos-form/Display.md)
 

@@ -49,3 +49,41 @@ kos.start(Component);
 > 注意：kos.start必须在kos.use中间件之后运行
 
 更多信息见：[Middleware](./formmiddleware.html)
+
+
+### addRule
+
+* 说明：添加表单校验规则
+* 参数：
+  + name：校验规则名称
+  + fn(getState,{field,value,formName},data)：检验规则函数体，函数体
+    - getState：获取当前的state数据
+    - {field,value,formName}：字段名、字段值、表单名
+    - data：配置的参数
+  + help：校验规则的错误消息
+    + success：校验正确
+    + error：校验错误
+    + warring：校验提示
+    + validating：校验中
+* 返回值：无
+* 代码示例：
+
+```js
+addRule('maxLength', (getState, { value, field }, data) => {
+  const maxLength=data[0];
+  if (value) {
+    return value.length <= maxLength;
+  }
+  return true;
+});
+```
+
+
+### removeRule
+
+* 说明：移除校验规则
+* 参数：
+  + name：校验器名称
+* 返回值：无
+
+
