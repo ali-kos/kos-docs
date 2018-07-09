@@ -31,13 +31,13 @@
 
 ### 基本概念
 
-* **Model：** Model是KOS的一个核心概念，Model承载View的数据提供、各类数据操作逻辑，扩展中间件时，需要使用到的基础配置，也将在Model上承载，详见[Model]('./model.html)
+* **Model：** Model是KOS的一个核心概念，Model承载View的数据提供、各类数据操作逻辑，扩展中间件时，需要使用到的基础配置，也将在Model上承载，详见[Model](./model.html)
 
 * **View：** 经过kos.Wrapper包装后返回的组件，称之为view，本质上也是一个React.Component，详见[View](./View.html)
 
-* **Wrapper：** 高阶函数，第一级别参数为config，第二级参数为一个React.Component包裹器，返回一个高阶组件将Model和View做了糅合，详见：[Middleware]('./Middleware.html')
+* **Wrapper：** 高阶函数，第一级别参数为config，第二级参数为一个React.Component包裹器，返回一个高阶组件将Model和View做了糅合，详见：[Middleware](./Middleware.html)
 
-* **Middleware：** Redux的中间件，详见[Middle]('./Middleware.html')，kos基于redux的中间件来扩展自己的能力
+* **Middleware：** Redux的中间件，详见[Middle](./Middleware.html)，kos基于redux的中间件来扩展自己的能力
 
 * **namespace：** 命名空间，View和Model要整合，namespace是必须的，
   
