@@ -59,8 +59,15 @@ export default @KOS.Wrapper({model,autoLoad:false})(View);
 * 是否必填：否
 * 说明：用于标志在WrapperComponent高阶组件在`componentDidMount`生命周期阶段，初始化数据时，是否会触发`setup`的`action`；setup的action响应为Model.setup，用于加载组件的初始化数据
 
+### 3. config.autoReset
 
-### 3. config.namesapce
+* 配置类型：Boolean
+* 默认值：true
+* 是否必填：否
+* 说明：用于标志在WrapperComponent高阶组件在`componentWillUndMount`生命周期阶段，是否将`model.initial`的数据设置到`state[namespace]`下，进行数据还原
+
+
+### 4. config.namesapce
 
 * 配置类型：String
 * 默认值：无
