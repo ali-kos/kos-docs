@@ -436,7 +436,14 @@
 <li>&#x662F;&#x5426;&#x5FC5;&#x586B;&#xFF1A;&#x5426;</li>
 <li>&#x8BF4;&#x660E;&#xFF1A;&#x7528;&#x4E8E;&#x6807;&#x5FD7;&#x5728;WrapperComponent&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;&#x5728;<code>componentDidMount</code>&#x751F;&#x547D;&#x5468;&#x671F;&#x9636;&#x6BB5;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x662F;&#x5426;&#x4F1A;&#x89E6;&#x53D1;<code>setup</code>&#x7684;<code>action</code>&#xFF1B;setup&#x7684;action&#x54CD;&#x5E94;&#x4E3A;Model.setup&#xFF0C;&#x7528;&#x4E8E;&#x52A0;&#x8F7D;&#x7EC4;&#x4EF6;&#x7684;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;</li>
 </ul>
-<h3 id="3-confignamesapce">3. config.namesapce</h3>
+<h3 id="3-configautoreset">3. config.autoReset</h3>
+<ul>
+<li>&#x914D;&#x7F6E;&#x7C7B;&#x578B;&#xFF1A;Boolean</li>
+<li>&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;true</li>
+<li>&#x662F;&#x5426;&#x5FC5;&#x586B;&#xFF1A;&#x5426;</li>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x7528;&#x4E8E;&#x6807;&#x5FD7;&#x5728;WrapperComponent&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;&#x5728;<code>componentWillUndMount</code>&#x751F;&#x547D;&#x5468;&#x671F;&#x9636;&#x6BB5;&#xFF0C;&#x662F;&#x5426;&#x5C06;<code>model.initial</code>&#x7684;&#x6570;&#x636E;&#x8BBE;&#x7F6E;&#x5230;<code>state[namespace]</code>&#x4E0B;&#xFF0C;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x8FD8;&#x539F;</li>
+</ul>
+<h3 id="4-confignamesapce">4. config.namesapce</h3>
 <ul>
 <li>&#x914D;&#x7F6E;&#x7C7B;&#x578B;&#xFF1A;String</li>
 <li>&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;&#x65E0;</li>
@@ -545,7 +552,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.1. Wrapper","level":"2.1.1","depth":2,"next":{"title":"4.2. Model","level":"2.1.2","depth":2,"path":"kos/Model.md","ref":"./kos/Model.md","articles":[]},"previous":{"title":"4. kos核心API","level":"2.1","depth":1,"path":"kos/Index.md","ref":"./kos/Index.md","articles":[{"title":"4.1. Wrapper","level":"2.1.1","depth":2,"path":"kos/Wrapper.md","ref":"./kos/Wrapper.md","articles":[]},{"title":"4.2. Model","level":"2.1.2","depth":2,"path":"kos/Model.md","ref":"./kos/Model.md","articles":[]},{"title":"4.3. View","level":"2.1.3","depth":2,"path":"kos/View.md","ref":"./kos/View.md","articles":[]},{"title":"4.4. Middleware","level":"2.1.4","depth":2,"path":"kos/Middleware.md","ref":"./kos/Middleware.md","articles":[]},{"title":"4.5. Util","level":"2.1.5","depth":2,"path":"kos/Util.md","ref":"./kos/Util.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos/Wrapper.md","mtime":"2018-07-03T04:13:52.648Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T04:08:57.852Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.1. Wrapper","level":"2.1.1","depth":2,"next":{"title":"4.2. Model","level":"2.1.2","depth":2,"path":"kos/Model.md","ref":"./kos/Model.md","articles":[]},"previous":{"title":"4. kos核心API","level":"2.1","depth":1,"path":"kos/Index.md","ref":"./kos/Index.md","articles":[{"title":"4.1. Wrapper","level":"2.1.1","depth":2,"path":"kos/Wrapper.md","ref":"./kos/Wrapper.md","articles":[]},{"title":"4.2. Model","level":"2.1.2","depth":2,"path":"kos/Model.md","ref":"./kos/Model.md","articles":[]},{"title":"4.3. View","level":"2.1.3","depth":2,"path":"kos/View.md","ref":"./kos/View.md","articles":[]},{"title":"4.4. Middleware","level":"2.1.4","depth":2,"path":"kos/Middleware.md","ref":"./kos/Middleware.md","articles":[]},{"title":"4.5. Util","level":"2.1.5","depth":2,"path":"kos/Util.md","ref":"./kos/Util.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos/Wrapper.md","mtime":"2018-07-09T12:14:13.144Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T12:15:52.320Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -553,10 +560,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

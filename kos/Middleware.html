@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.3. View · GitBook</title>
+        <title>4.4. Middleware · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Middleware.html" />
+    <link rel="next" href="Util.html" />
     
     
-    <link rel="prev" href="Model.html" />
+    <link rel="prev" href="View.html" />
     
 
     </head>
@@ -188,7 +188,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.3" data-path="View.html">
+        <li class="chapter " data-level="2.1.3" data-path="View.html">
             
                 <a href="View.html">
             
@@ -201,7 +201,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.4" data-path="Middleware.html">
+        <li class="chapter active" data-level="2.1.4" data-path="Middleware.html">
             
                 <a href="Middleware.html">
             
@@ -372,7 +372,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >4.3. View</a>
+        <a href=".." >4.4. Middleware</a>
     </h1>
 </div>
 
@@ -387,8 +387,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="view">View</h1>
-<p>&#x7ECF;&#x8FC7;<a href="Wrapper.html">KOS.Wrapper</a>&#x9AD8;&#x9636;&#x65B9;&#x6CD5;&#x5305;&#x88C5;&#x540E;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x7EC4;&#x4EF6;&#x79F0;&#x4E3A;View</p>
+                                <h1 id="middleware">Middleware</h1>
+<p>kos&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x5C31;&#x662F;redux&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;kos&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x5F00;&#x53D1;&#x53C2;&#x89C1;&#xFF1A;<a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" target="_blank">redux&#x4E2D;&#x95F4;&#x4EF6;&#x5F00;&#x53D1;</a></p>
+<h2 id="async-middleware">async-middleware</h2>
+<p>KOS&#x5185;&#x7F6E;&#x4E86;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x7684;action&#xFF0C;&#x4F7F;&#x7528;async/await&#x6765;&#x89E3;&#x51B3;&#x5F02;&#x6B65;&#x95EE;&#x9898;&#xFF0C;&#x8BA9;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x7684;&#x6D41;&#x7545;&#xFF0C;&#x5F02;&#x6B65;&#x903B;&#x8F91;&#x7684;&#x652F;&#x6301;&#x60C5;&#x51B5;&#x5982;&#x4E0B;:</p>
+<p><code>view.js</code></p>
+<pre><code class="lang-js">dispatch({
+  type:<span class="hljs-string">&apos;loadLis&apos;</span>,
+  paylaod:{}
+})
+</code></pre>
+<p><code>model.js</code></p>
+<pre><code class="lang-js">{
+  asyncs:{
+    <span class="hljs-keyword">async</span> loadList(dispatch,getState,action){
+      <span class="hljs-keyword">const</span> params={};
+      <span class="hljs-keyword">await</span> fetch({
+        url:<span class="hljs-string">&apos;&apos;</span>,
+        data:param
+      });
+
+      dispatch({
+        type:<span class="hljs-string">&apos;setState&apos;</span>,
+        payload:{
+          ...
+        }
+      });
+    }
+  }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -416,12 +444,12 @@
 
             
                 
-                <a href="Model.html" class="navigation navigation-prev " aria-label="Previous page: 4.2. Model">
+                <a href="View.html" class="navigation navigation-prev " aria-label="Previous page: 4.3. View">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Middleware.html" class="navigation navigation-next " aria-label="Next page: 4.4. Middleware">
+                <a href="Util.html" class="navigation navigation-next " aria-label="Next page: 4.5. Util">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -432,7 +460,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.3. View","level":"2.1.3","depth":2,"next":{"title":"4.4. Middleware","level":"2.1.4","depth":2,"path":"kos/Middleware.md","ref":"./kos/Middleware.md","articles":[]},"previous":{"title":"4.2. Model","level":"2.1.2","depth":2,"path":"kos/Model.md","ref":"./kos/Model.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos/View.md","mtime":"2018-07-03T04:14:58.370Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T04:08:57.852Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.4. Middleware","level":"2.1.4","depth":2,"next":{"title":"4.5. Util","level":"2.1.5","depth":2,"path":"kos/Util.md","ref":"./kos/Util.md","articles":[]},"previous":{"title":"4.3. View","level":"2.1.3","depth":2,"path":"kos/View.md","ref":"./kos/View.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos/Middleware.md","mtime":"2018-06-30T06:58:51.242Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T12:15:52.320Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -440,10 +468,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

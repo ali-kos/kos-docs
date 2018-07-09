@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>5.6. 内置Rule · GitBook</title>
+        <title>5.1. Form · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Display.html" />
+    <link rel="next" href="FieldHOC.html" />
     
     
-    <link rel="prev" href="Validator.html" />
+    <link rel="prev" href="Index.html" />
     
 
     </head>
@@ -246,7 +246,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.2.1" data-path="Form.html">
+        <li class="chapter active" data-level="2.2.1" data-path="Form.html">
             
                 <a href="Form.html">
             
@@ -311,7 +311,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2.6" data-path="DefaultRule.html">
+        <li class="chapter " data-level="2.2.6" data-path="DefaultRule.html">
             
                 <a href="DefaultRule.html">
             
@@ -372,7 +372,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >5.6. 内置Rule</a>
+        <a href=".." >5.1. Form</a>
     </h1>
 </div>
 
@@ -387,38 +387,117 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x5185;&#x7F6E;&#x7684;rule">&#x5185;&#x7F6E;&#x7684;rule</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">name</th>
-<th style="text-align:center">&#x8BF4;&#x660E;</th>
-<th style="text-align:center">&#x53C2;&#x6570;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">required</td>
-<td style="text-align:center">&#x5FC5;&#x586B;</td>
-<td style="text-align:center">&#x65E0;</td>
-</tr>
-<tr>
-<td style="text-align:center">min</td>
-<td style="text-align:center">&#x6700;&#x5C0F;&#x503C;</td>
-<td style="text-align:center">&#x6700;&#x5C0F;&#x503C;&#x6570;&#x5B57;&#xFF1A;data:1</td>
-</tr>
-<tr>
-<td style="text-align:center">max</td>
-<td style="text-align:center">&#x6700;&#x5927;&#x503C;</td>
-<td style="text-align:center">&#x6700;&#x5927;&#x503C;&#x6570;&#x5B57;&#xFF1A;data:2</td>
-</tr>
-<tr>
-<td style="text-align:center">regexp</td>
-<td style="text-align:center">&#x6B63;&#x5219;</td>
-<td style="text-align:center">&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;data:/d+/g</td>
-</tr>
-</tbody>
-</table>
+                                <h1 id="form">Form</h1>
+<p>Form&#x662F;kos-form&#x63D0;&#x4F9B;&#x7684;&#x8868;&#x5355;&#x7EC4;&#x4EF6;&#xFF0C;Field&#x7EC4;&#x4EF6;&#x5FC5;&#x987B;&#x5728;Form&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x6765;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> {Form,FieldHoc,formMiddleware} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;kos-form&apos;</span>;
+<span class="hljs-keyword">import</span> {Form <span class="hljs-keyword">as</span> AntDFrom,Input,Button} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+
+<span class="hljs-keyword">const</span> Field=FieldHoc({
+  FieldWrapper:AntDForm.Item
+});
+
+
+<span class="hljs-keyword">const</span> AddForm = <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span></span>{
+  submitForm(formData){
+    dispatch({
+      type:<span class="hljs-string">&apos;saveForm&apos;</span>,
+      payload:{
+        formData
+      }
+    });
+  }
+  render(){
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;addForm&quot;</span> <span class="hljs-attr">onSubmit</span>=<span class="hljs-string">{(formData)=</span>&gt;</span>this.submitForm(formData)}&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">Field</span> <span class="hljs-attr">field</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Input</span>/&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Field</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">htmlType</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span>&#x63D0;&#x4EA4;<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Form</span>&gt;</span>
+  }
+}
+
+kos.use(formMiddleware);
+</span></code></pre>
+<h2 id="props">props</h2>
+<h3 id="propsname">props.name</h3>
+<ul>
+<li>&#x7C7B;&#x578B;&#xFF1A;String</li>
+<li>&#x662F;&#x5426;&#x5FC5;&#x586B;&#xFF1A;&#x5FC5;&#x586B;</li>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x5F53;&#x524D;namesapce&#x4E0B;&#x7684;&#x552F;&#x4E00;&#x7684;&#x8868;&#x5355;&#x540D;</li>
+</ul>
+<h2 id="props">props</h2>
+<h3 id="propsonsubmit">props.onSubmit</h3>
+<ul>
+<li>&#x7C7B;&#x578B;&#xFF1A;function</li>
+<li>&#x662F;&#x5426;&#x5FC5;&#x586B;&#xFF1A;&#x5426;</li>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x8868;&#x5355;&#x7684;onSubmit&#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x4E8B;&#x5148;&#x8FDB;&#x884C;&#x8868;&#x5355;&#x6821;&#x9A8C;&#xFF0C;&#x6821;&#x9A8C;&#x901A;&#x8FC7;&#x624D;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;</li>
+<li>&#x5165;&#x53C2;&#xFF1A;<ul>
+<li>formData&#xFF1A;Object&#xFF0C;&#x5F53;&#x524D;&#x8868;&#x5355;&#x7684;&#x6240;&#x6709;&#x503C;&#x5185;&#x5BB9;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x9759;&#x6001;&#x65B9;&#x6CD5;">&#x9759;&#x6001;&#x65B9;&#x6CD5;</h2>
+<h3 id="formgetformnamesapceformname">Form.getForm(namesapce,formName)</h3>
+<ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x6839;&#x636E;namespace&#x548C;formName&#xFF0C;&#x83B7;&#x53D6;&#x8868;&#x5355;&#x5BF9;&#x8C61;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;<ul>
+<li>namespace&#xFF1A;String&#xFF0C;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684;namespace</li>
+<li>formName&#xFF1A;Strign&#xFF0C;&#x8868;&#x5355;&#x540D;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x8868;&#x5355;&#x5BF9;&#x8C61;</li>
+</ul>
+<h3 id="formgetformdatanamesapceformname">Form.getFormData(namesapce,formName)</h3>
+<ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x6839;&#x636E;namespace&#x548C;formName&#xFF0C;&#x83B7;&#x53D6;&#x8868;&#x5355;&#x6570;&#x636E;&#x503C;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;<ul>
+<li>namespace&#xFF1A;String&#xFF0C;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684;namespace</li>
+<li>formName&#xFF1A;Strign&#xFF0C;&#x8868;&#x5355;&#x540D;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x8868;&#x5355;&#x5F53;&#x524D;&#x6570;&#x636E;&#x503C;</li>
+</ul>
+<h3 id="formresetformnamesapceformname">Form.resetForm(namesapce,formName)</h3>
+<ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x91CD;&#x7F6E;&#x8868;&#x5355;&#x7684;&#x503C;&#xFF0C;&#x5C06;Model.initial&#x4E2D;&#x7684;&#x503C;&#x91CD;&#x7F6E;&#x5230;form&#x4E2D;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;<ul>
+<li>namespace&#xFF1A;String&#xFF0C;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684;namespace</li>
+<li>formName&#xFF1A;Strign&#xFF0C;&#x8868;&#x5355;&#x540D;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x5BF9;&#x8C61;api">&#x5BF9;&#x8C61;API</h2>
+<h3 id="formreset">form.reset();</h3>
+<ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x91CD;&#x7F6E;&#x8868;&#x5355;&#x7684;&#x503C;&#xFF0C;&#x5C06;Model.initial[formName]&#x7684;&#x503C;&#xFF0C;&#x8986;&#x76D6;&#x5F53;&#x524D;&#x8868;&#x5355;&#x7684;&#x503C;</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65E0;</li>
+</ul>
+<h3 id="formgetdata">form.getData()</h3>
+<ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x83B7;&#x53D6;&#x8868;&#x5355;&#x7684;&#x503C;&#x5BF9;&#x8C61;,key&#x4E3A;field</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x8868;&#x5355;&#x7684;&#x503C;&#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;{name:1,age:2}</li>
+</ul>
+<h3 id="formsetdatadata">form.setData(data)</h3>
+<ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x56DE;&#x586B;&#x8868;&#x5355;&#x6570;&#x636E;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;<ul>
+<li>data&#xFF1A;key/value&#x5F62;&#x5F0F;&#x7684;&#x8868;&#x5355;&#x503C;&#x5BF9;&#x8C61;</li>
+</ul>
+</li>
+</ul>
+<h3 id="formvalidatecallback">form.validate(callback)</h3>
+<ul>
+<li>&#x8BF4;&#x660E;&#xFF1A;&#x6267;&#x884C;&#x8868;&#x5355;&#x6821;&#x9A8C;</li>
+<li>&#x53C2;&#x6570;&#xFF1A;<ul>
+<li>callback&#xFF1A;&#x6267;&#x884C;&#x6821;&#x9A8C;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;<ul>
+<li>&#x53C2;&#x6570;&#xFF1A;result&#xFF0C;true&#x4E3A;&#x6821;&#x9A8C;&#x6210;&#x529F;&#xFF0C;false&#x4E3A;&#x6821;&#x9A8C;&#x5931;&#x8D25;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65E0;</li>
+</ul>
 
                                 
                                 </section>
@@ -446,12 +525,12 @@
 
             
                 
-                <a href="Validator.html" class="navigation navigation-prev " aria-label="Previous page: 5.5. Validator">
+                <a href="Index.html" class="navigation navigation-prev " aria-label="Previous page: 5. kos-form">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Display.html" class="navigation navigation-next " aria-label="Next page: 5.7. Display">
+                <a href="FieldHOC.html" class="navigation navigation-next " aria-label="Next page: 5.2. FieldHOC">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -462,7 +541,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.6. 内置Rule","level":"2.2.6","depth":2,"next":{"title":"5.7. Display","level":"2.2.7","depth":2,"path":"kos-form/Display.md","ref":"./kos-form/Display.md","articles":[]},"previous":{"title":"5.5. Validator","level":"2.2.5","depth":2,"path":"kos-form/Validator.md","ref":"./kos-form/Validator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/DefaultRule.md","mtime":"2018-07-09T04:07:18.477Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T04:08:57.852Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.1. Form","level":"2.2.1","depth":2,"next":{"title":"5.2. FieldHOC","level":"2.2.2","depth":2,"path":"kos-form/FieldHOC.md","ref":"./kos-form/FieldHOC.md","articles":[]},"previous":{"title":"5. kos-form","level":"2.2","depth":1,"path":"kos-form/Index.md","ref":"./kos-form/Index.md","articles":[{"title":"5.1. Form","level":"2.2.1","depth":2,"path":"kos-form/Form.md","ref":"./kos-form/Form.md","articles":[]},{"title":"5.2. FieldHOC","level":"2.2.2","depth":2,"path":"kos-form/FieldHOC.md","ref":"./kos-form/FieldHOC.md","articles":[]},{"title":"5.3. FormMiddleware","level":"2.2.3","depth":2,"path":"kos-form/formmiddleware.md","ref":"./kos-form/formmiddleware.md","articles":[]},{"title":"5.4. Rule","level":"2.2.4","depth":2,"path":"kos-form/Rule.md","ref":"./kos-form/Rule.md","articles":[]},{"title":"5.5. Validator","level":"2.2.5","depth":2,"path":"kos-form/Validator.md","ref":"./kos-form/Validator.md","articles":[]},{"title":"5.6. 内置Rule","level":"2.2.6","depth":2,"path":"kos-form/DefaultRule.md","ref":"./kos-form/DefaultRule.md","articles":[]},{"title":"5.7. Display","level":"2.2.7","depth":2,"path":"kos-form/Display.md","ref":"./kos-form/Display.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/Form.md","mtime":"2018-07-09T04:07:18.479Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T12:15:52.320Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -470,10 +549,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

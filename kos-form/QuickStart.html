@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>5.2. FieldHOC · GitBook</title>
+        <title>3. kos-form快速上手 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="formmiddleware.html" />
+    <link rel="next" href="../kos/Index.html" />
     
     
-    <link rel="prev" href="Form.html" />
+    <link rel="prev" href="../kos/extend.html" />
     
 
     </head>
@@ -128,7 +128,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="QuickStart.html">
+        <li class="chapter active" data-level="1.4" data-path="QuickStart.html">
             
                 <a href="QuickStart.html">
             
@@ -259,7 +259,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2.2" data-path="FieldHOC.html">
+        <li class="chapter " data-level="2.2.2" data-path="FieldHOC.html">
             
                 <a href="FieldHOC.html">
             
@@ -372,7 +372,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >5.2. FieldHOC</a>
+        <a href=".." >3. kos-form快速上手</a>
     </h1>
 </div>
 
@@ -387,9 +387,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="fieldhocfieldwrapper-fieldprops">FieldHOC({FieldWrapper, FieldProps})</h1>
-<p>FieldHOC&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E3A;&#x4E86;&#x901A;&#x7528;&#x6027;&#x8003;&#x8651;&#xFF0C;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;antd&#xFF0C;&#x9879;&#x76EE;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x6839;&#x636E;&#x8FD9;&#x4E2A;FieldHOC&#xFF0C;&#x7EC4;&#x88C5;&#x81EA;&#x5DF1;&#x7684;Field&#x7EC4;&#x4EF6;&#xFF1B;</p>
-<p><strong>&#x793A;&#x4F8B;&#xFF1A;</strong></p>
+                                <h1 id="kos-form-&#x5FEB;&#x901F;&#x4E0A;&#x624B;">kos-form &#x5FEB;&#x901F;&#x4E0A;&#x624B;</h1>
+<h2 id="&#x4F9D;&#x8D56;&#x5B89;&#x88C5;">&#x4F9D;&#x8D56;&#x5B89;&#x88C5;</h2>
+<pre><code>npm install kos-core --save;
+
+npm install kos-form --save;
+</code></pre><p>kos-from&#x4F9D;&#x8D56;kos&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x5B89;&#x88C5;kos-core</p>
+<h2 id="&#x4EE3;&#x7801;&#x793A;&#x4F8B;">&#x4EE3;&#x7801;&#x793A;&#x4F8B;</h2>
 <p><code>kos-form-antd.js</code></p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> KosForm <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;kos-form&apos;</span>;
 <span class="hljs-keyword">import</span> { Form <span class="hljs-keyword">as</span> AntDForm } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
@@ -431,6 +435,153 @@
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> Form = KosForm.Form;
 </code></pre>
+<p><code>form.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
+<span class="hljs-keyword">import</span> KOS <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;kos-core&apos;</span>;
+<span class="hljs-keyword">import</span> model <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./model&apos;</span>
+
+<span class="hljs-keyword">import</span> { Input, Tooltip, Icon, Cascader, Select, Row, Col, Radio, Button, AutoComplete } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
+<span class="hljs-keyword">import</span> { Form, Field, ToolbarField } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./kos-form-antd&apos;</span>;
+
+
+<span class="hljs-keyword">const</span> RadioButton = Radio.Button;
+<span class="hljs-keyword">const</span> RadioGroup = Radio.Group;
+
+
+@KOS.Wrapper({ model })
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PageForm</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">PureComponent</span> </span>{
+  <span class="hljs-comment">/**
+   * &#x7528;&#x4E8E;&#x76F4;&#x63A5;&#x7684;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x63D0;&#x4EA4;&#x903B;&#x8F91;
+   *
+   * */</span>
+  handleSubmit() {
+    <span class="hljs-keyword">const</span> { dispatch } = <span class="hljs-keyword">this</span>.props;
+    <span class="hljs-keyword">const</span> { getNamespace } = <span class="hljs-keyword">this</span>.props;
+
+
+    <span class="hljs-keyword">const</span> result = Form.validate(getNamespace(), <span class="hljs-string">&apos;addForm&apos;</span>, (result) =&gt; {
+      result &amp;&amp; dispatch({
+        type: <span class="hljs-string">&apos;save&apos;</span>
+      });
+    });
+  }
+  submitForm(formData) {
+    <span class="hljs-keyword">const</span> { dispatch } = <span class="hljs-keyword">this</span>.props;
+    dispatch({
+      type: <span class="hljs-string">&apos;save&apos;</span>
+    });
+  }
+  render() {
+    <span class="hljs-keyword">const</span> { title, dispatch } = <span class="hljs-keyword">this</span>.props;
+
+    <span class="hljs-keyword">return</span> &lt;Form name=&quot;addForm&quot; onSubmit={() =&gt; this.submitForm()}&gt;
+      &lt;Field label=&quot;&#x9875;&#x9762;&#x540D;&#x79F0;&#xFF1A;&quot; field=&quot;page_name&quot;&gt;
+        &lt;Input onChange={() =&gt; { console.log(&apos;onChange&apos;) }} /&gt;
+      &lt;/Field&gt;
+      &lt;Field label=&quot;&#x9875;&#x9762;&#x7C7B;&#x578B;&#xFF1A;&quot; field=&quot;page_type&quot;&gt;
+        &lt;RadioGroup&gt;
+          &lt;RadioButton value=&quot;pc&quot;&gt;PC&lt;/RadioButton&gt;
+          &lt;RadioButton value=&quot;h5&quot;&gt;H5&lt;/RadioButton&gt;
+        &lt;/RadioGroup&gt;
+      &lt;/Field&gt;
+      &lt;Field label=&quot;&#x8BF4;&#x660E;&#xFF1A;&quot; field=&quot;page_desc&quot;&gt;
+        &lt;Input.TextArea rows={4} /&gt;
+      &lt;/Field&gt;
+      &lt;ToolbarField&gt;
+        &lt;Button type=&quot;primary&quot; htmlType=&quot;submit&quot;&gt;&#x65B0;&#x589E;&lt;/Button&gt;
+      &lt;/ToolbarField&gt;
+    &lt;/Form&gt;
+  }
+}
+
+export default PageForm
+</code></pre>
+<p><code>model.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;lib/fetch&apos;</span>;
+<span class="hljs-keyword">import</span> { notification } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
+
+
+<span class="hljs-keyword">const</span> model = {
+  namespace: <span class="hljs-string">&apos;page-form-1&apos;</span>,
+  initial: {
+    addForm: {
+      page_name: <span class="hljs-string">&apos;1234&apos;</span>
+    }
+  },
+  asyncs: {
+    <span class="hljs-keyword">async</span> save(dispatch, getState, { payload }) {
+      <span class="hljs-keyword">const</span> state = getState();
+      <span class="hljs-keyword">const</span> { addForm } = state;
+      <span class="hljs-keyword">const</span> { param } = state;
+
+      <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> fetch({
+        url: <span class="hljs-string">&apos;/page/add&apos;</span>,
+        data: {
+          ...addForm,
+          page_init_data: <span class="hljs-string">&apos;&apos;</span>,
+          app_id: param.appId
+        }
+      });
+
+      <span class="hljs-keyword">if</span> (data.ok) {
+        notification.success({
+          message: <span class="hljs-string">&apos;&#x606D;&#x559C;&#x60A8;&#xFF01;&apos;</span>,
+          description: <span class="hljs-string">&apos;&#x6DFB;&#x52A0;&#x6210;&#x529F;&#xFF01;&apos;</span>
+        });
+        history.push(<span class="hljs-string">`/page/list/<span class="hljs-subst">${param.appId}</span>`</span>);
+      }
+    }
+  },
+  validators: [{
+    formName: <span class="hljs-string">&apos;addForm&apos;</span>,
+    validators: [{
+      field: <span class="hljs-string">&apos;page_name&apos;</span>,
+      rules: <span class="hljs-string">&apos;required&apos;</span>
+    }, {
+      field: <span class="hljs-string">&apos;page_desc&apos;</span>,
+      rules: [<span class="hljs-string">&apos;required&apos;</span>, (getState, { field, value }, data) =&gt; {
+        <span class="hljs-keyword">return</span> value &amp;&amp; value.length &lt;= <span class="hljs-number">3</span>;
+      }],
+      help: <span class="hljs-string">&apos;&#x8BF7;&#x6B63;&#x786E;&#x586B;&#x5199;&apos;</span>
+    }, {
+      field: <span class="hljs-string">&apos;page_name&apos;</span>,
+      rules: [<span class="hljs-string">&apos;required@&#x597D;&#x597D;&#x586B;&apos;</span>, {
+        name: <span class="hljs-string">&apos;maxLength&apos;</span>,
+        data: <span class="hljs-number">4</span>,
+        help: <span class="hljs-string">&apos;maxLength:{0}&apos;</span>
+      }]
+    }, {
+      field: <span class="hljs-string">&apos;page_name&apos;</span>,
+      help: <span class="hljs-string">&apos;&#x5F02;&#x6B65;&#x6821;&#x9A8C;&#x5931;&#x8D25;&apos;</span>,
+      rules: {
+        data: { a: <span class="hljs-number">1</span> },
+        fn: <span class="hljs-keyword">async</span> (getState, { field, value }, data) =&gt; {
+          <span class="hljs-keyword">const</span> xdata = <span class="hljs-keyword">await</span> fetch({
+            url: <span class="hljs-string">&apos;/app/list&apos;</span>,
+            data: {
+            }
+          });
+
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+        }
+      }
+    }]
+  }],
+  formFieldDisplay: {
+    <span class="hljs-string">&apos;addForm&apos;</span>: {
+      <span class="hljs-string">&apos;page_type&apos;</span>: (getState, { field, value }) =&gt; {
+        <span class="hljs-built_in">console</span>.log(value);
+
+        <span class="hljs-keyword">return</span> {
+          <span class="hljs-string">&apos;page_desc&apos;</span>: value === <span class="hljs-string">&apos;pc&apos;</span>
+        }
+      }
+    }
+  }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> model;
+</code></pre>
 
                                 
                                 </section>
@@ -458,12 +609,12 @@
 
             
                 
-                <a href="Form.html" class="navigation navigation-prev " aria-label="Previous page: 5.1. Form">
+                <a href="../kos/extend.html" class="navigation navigation-prev " aria-label="Previous page: 2. kos扩展">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="formmiddleware.html" class="navigation navigation-next " aria-label="Next page: 5.3. FormMiddleware">
+                <a href="../kos/Index.html" class="navigation navigation-next " aria-label="Next page: 4. kos核心API">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -474,7 +625,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.2. FieldHOC","level":"2.2.2","depth":2,"next":{"title":"5.3. FormMiddleware","level":"2.2.3","depth":2,"path":"kos-form/formmiddleware.md","ref":"./kos-form/formmiddleware.md","articles":[]},"previous":{"title":"5.1. Form","level":"2.2.1","depth":2,"path":"kos-form/Form.md","ref":"./kos-form/Form.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/FieldHOC.md","mtime":"2018-07-03T08:48:19.468Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T04:08:57.852Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. kos-form快速上手","level":"1.4","depth":1,"next":{"title":"4. kos核心API","level":"2.1","depth":1,"path":"kos/Index.md","ref":"./kos/Index.md","articles":[{"title":"4.1. Wrapper","level":"2.1.1","depth":2,"path":"kos/Wrapper.md","ref":"./kos/Wrapper.md","articles":[]},{"title":"4.2. Model","level":"2.1.2","depth":2,"path":"kos/Model.md","ref":"./kos/Model.md","articles":[]},{"title":"4.3. View","level":"2.1.3","depth":2,"path":"kos/View.md","ref":"./kos/View.md","articles":[]},{"title":"4.4. Middleware","level":"2.1.4","depth":2,"path":"kos/Middleware.md","ref":"./kos/Middleware.md","articles":[]},{"title":"4.5. Util","level":"2.1.5","depth":2,"path":"kos/Util.md","ref":"./kos/Util.md","articles":[]}]},"previous":{"title":"2. kos扩展","level":"1.3","depth":1,"path":"kos/extend.md","ref":"./kos/extend.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/QuickStart.md","mtime":"2018-07-03T03:50:45.897Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T12:15:52.320Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -482,10 +633,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

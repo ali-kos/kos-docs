@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>5. kos-form · GitBook</title>
+        <title>5.7. Display · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Form.html" />
     
-    
-    <link rel="prev" href="../kos/Util.html" />
+    <link rel="prev" href="DefaultRule.html" />
     
 
     </head>
@@ -232,7 +230,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2" data-path="Index.html">
+        <li class="chapter " data-level="2.2" data-path="Index.html">
             
                 <a href="Index.html">
             
@@ -324,7 +322,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.7" data-path="Display.html">
+        <li class="chapter active" data-level="2.2.7" data-path="Display.html">
             
                 <a href="Display.html">
             
@@ -372,7 +370,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >5. kos-form</a>
+        <a href=".." >5.7. Display</a>
     </h1>
 </div>
 
@@ -387,90 +385,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="kos-form">kos-form</h1>
-<p>kos-form&#x662F;&#x4E00;&#x6B3E;&#x57FA;&#x4E8E;kos&#x4E2D;&#x95F4;&#x4EF6;&#x673A;&#x5236;&#xFF0C;&#x6269;&#x5C55;&#x51FA;&#x6765;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x63D0;&#x4F9B;&#x8868;&#x5355;&#x7684;&#x6821;&#x9A8C;&#x3001;&#x63D0;&#x4EA4;&#x3001;&#x5B57;&#x6BB5;&#x64CD;&#x4F5C;&#x80FD;&#x529B;</p>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> {Form,FieldHOC,formMiddleware} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;kos-form&apos;</span>;
-</code></pre>
-<p>&#x5305;&#x542B;&#x5982;&#x4E0B;&#x4E09;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#xFF1A;</p>
-<h3 id="form">Form</h3>
-<ul>
-<li>&#x8BF4;&#x660E;&#xFF1A;&#x8868;&#x5355;&#x7EC4;&#x4EF6;</li>
-<li>&#x7C7B;&#x578B;&#xFF1A;React.Component</li>
-<li>proptypes:<ul>
-<li>name&#xFF1A;&#x5FC5;&#x586B;&#xFF0C;&#x8868;&#x5355;&#x7684;&#x540D;&#x79F0;</li>
-<li>onSubmit&#xFF1A;&#x8868;&#x5355;&#x6821;&#x9A8C;&#x89C4;&#x5219;&#x6267;&#x884C;&#x901A;&#x8FC7;&#x4E4B;&#x540E;&#xFF0C;&#x56DE;&#x8C03;&#x7684;&#x5904;&#x7406;&#x65B9;&#x6CD5;</li>
-</ul>
-</li>
-</ul>
-<p>&#x8BE6;&#x7EC6;&#x89C1;&#xFF1A;<a href="form.html">Form</a></p>
-<h3 id="fieldhoc">FieldHOC</h3>
-<ul>
-<li>&#x8BF4;&#x660E;&#xFF1A;&#x8868;&#x5355;&#x5B57;&#x6BB5;&#x7684;&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;&#xFF0C;kos-form&#x8981;&#x8003;&#x8651;&#x901A;&#x7528;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x4F9D;&#x8D56;antd&#xFF0C;&#x6211;&#x4EEC;&#x540E;&#x7EED;&#x57FA;&#x4E8E;kos-form&#x548C;antd&#xFF0C;&#x63D0;&#x4F9B;kos-form-antd&#x7684;&#x5305;</li>
-<li>&#x7C7B;&#x578B;&#xFF1A;&#x9AD8;&#x9636;&#x7EC4;&#x4EF6;</li>
-<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;
-Field&#xFF1A;&#x8868;&#x5355;&#x7684;&#x5B57;&#x6BB5;&#x7EC4;&#x4EF6;
-Field.props&#xFF1A;<ul>
-<li>field&#xFF1A;&#x8868;&#x5355;&#x540D;&#x79F0;&#xFF0C;&#x5FC5;&#x586B;</li>
-</ul>
-</li>
-</ul>
-<p>&#x8BE6;&#x7EC6;&#x89C1;&#xFF1A;<a href="fieldhoc.html">FieldHOC</a></p>
-<h3 id="formmiddleware">formMiddleware</h3>
-<ul>
-<li>&#x8BF4;&#x660E;&#xFF1A;&#x8868;&#x5355;&#x5904;&#x7406;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x8868;&#x5355;&#x7684;&#x6821;&#x9A8C;&#x3001;&#x6570;&#x636E;&#x7684;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#x3001;&#x5B57;&#x6BB5;&#x7684;&#x5C55;&#x793A;&#x9690;&#x85CF;&#x5747;&#x4F9D;&#x8D56;&#x8FD9;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;</li>
-<li>&#x793A;&#x4F8B;&#xFF1A;</li>
-</ul>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> kos <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;kos-core&apos;</span>;
-<span class="hljs-keyword">import</span> {formMiddleware} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;kos-form&apos;</span>;
+                                <p>FormFieldDisplay</p>
+<p>&#x7528;&#x4E8E;&#x63A7;&#x5236;Field&#x662F;&#x5426;&#x53EF;&#x89C1;&#xFF0C;&#x914D;&#x7F6E;&#x5728;Model&#x4E2D;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { notification } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
 
-kos.use(formMiddleware);
+<span class="hljs-keyword">const</span> model = {
+  namespace: <span class="hljs-string">&apos;page-form-1&apos;</span>,
+  initial: {
+    addForm: {
+      page_name: <span class="hljs-string">&apos;1234&apos;</span>,
+      page_desc: <span class="hljs-string">&apos;aaaa&apos;</span>
+    }
+  },
+  formFieldDisplay: {
+    <span class="hljs-string">&apos;addForm&apos;</span>: {
+      <span class="hljs-string">&apos;page_type&apos;</span>: (getState, { field, value }) =&gt; {
+        <span class="hljs-built_in">console</span>.log(value);
 
-kos.start(Component);
-</code></pre>
-<blockquote>
-<p>&#x6CE8;&#x610F;&#xFF1A;kos.start&#x5FC5;&#x987B;&#x5728;kos.use&#x4E2D;&#x95F4;&#x4EF6;&#x4E4B;&#x540E;&#x8FD0;&#x884C;</p>
-</blockquote>
-<p>&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x89C1;&#xFF1A;<a href="formmiddleware.html">Middleware</a></p>
-<h3 id="addrule">addRule</h3>
-<ul>
-<li>&#x8BF4;&#x660E;&#xFF1A;&#x6DFB;&#x52A0;&#x8868;&#x5355;&#x6821;&#x9A8C;&#x89C4;&#x5219;</li>
-<li>&#x53C2;&#x6570;&#xFF1A;<ul>
-<li>name&#xFF1A;&#x6821;&#x9A8C;&#x89C4;&#x5219;&#x540D;&#x79F0;</li>
-<li>fn(getState,{field,value,formName},data)&#xFF1A;&#x68C0;&#x9A8C;&#x89C4;&#x5219;&#x51FD;&#x6570;&#x4F53;&#xFF0C;&#x51FD;&#x6570;&#x4F53;<ul>
-<li>getState&#xFF1A;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;state&#x6570;&#x636E;</li>
-<li>{field,value,formName}&#xFF1A;&#x5B57;&#x6BB5;&#x540D;&#x3001;&#x5B57;&#x6BB5;&#x503C;&#x3001;&#x8868;&#x5355;&#x540D;</li>
-<li>data&#xFF1A;&#x914D;&#x7F6E;&#x7684;&#x53C2;&#x6570;</li>
-</ul>
-</li>
-<li>help&#xFF1A;&#x6821;&#x9A8C;&#x89C4;&#x5219;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;<ul>
-<li>success&#xFF1A;&#x6821;&#x9A8C;&#x6B63;&#x786E;</li>
-<li>error&#xFF1A;&#x6821;&#x9A8C;&#x9519;&#x8BEF;</li>
-<li>warring&#xFF1A;&#x6821;&#x9A8C;&#x63D0;&#x793A;</li>
-<li>validating&#xFF1A;&#x6821;&#x9A8C;&#x4E2D;</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65E0;</li>
-<li>&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#xFF1A;</li>
-</ul>
-<pre><code class="lang-js">addRule(<span class="hljs-string">&apos;maxLength&apos;</span>, (getState, { value, field }, data) =&gt; {
-  <span class="hljs-keyword">const</span> maxLength=data[<span class="hljs-number">0</span>];
-  <span class="hljs-keyword">if</span> (value) {
-    <span class="hljs-keyword">return</span> value.length &lt;= maxLength;
+        <span class="hljs-keyword">return</span> {
+          <span class="hljs-string">&apos;page_desc&apos;</span>: value === <span class="hljs-string">&apos;pc&apos;</span>
+        }
+      }
+    }
   }
-  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-});
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> model;
 </code></pre>
-<h3 id="removerule">removeRule</h3>
-<ul>
-<li>&#x8BF4;&#x660E;&#xFF1A;&#x79FB;&#x9664;&#x6821;&#x9A8C;&#x89C4;&#x5219;</li>
-<li>&#x53C2;&#x6570;&#xFF1A;<ul>
-<li>name&#xFF1A;&#x6821;&#x9A8C;&#x5668;&#x540D;&#x79F0;</li>
-</ul>
-</li>
-<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x65E0;</li>
-</ul>
 
                                 
                                 </section>
@@ -498,14 +439,10 @@ kos.start(Component);
 
             
                 
-                <a href="../kos/Util.html" class="navigation navigation-prev " aria-label="Previous page: 4.5. Util">
+                <a href="DefaultRule.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 5.6. 内置Rule">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="Form.html" class="navigation navigation-next " aria-label="Next page: 5.1. Form">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -514,7 +451,7 @@ kos.start(Component);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5. kos-form","level":"2.2","depth":1,"next":{"title":"5.1. Form","level":"2.2.1","depth":2,"path":"kos-form/Form.md","ref":"./kos-form/Form.md","articles":[]},"previous":{"title":"4.5. Util","level":"2.1.5","depth":2,"path":"kos/Util.md","ref":"./kos/Util.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/Index.md","mtime":"2018-07-09T04:07:18.479Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T04:08:57.852Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.7. Display","level":"2.2.7","depth":2,"previous":{"title":"5.6. 内置Rule","level":"2.2.6","depth":2,"path":"kos-form/DefaultRule.md","ref":"./kos-form/DefaultRule.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/Display.md","mtime":"2018-07-09T04:07:18.478Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T12:15:52.320Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -522,10 +459,6 @@ kos.start(Component);
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

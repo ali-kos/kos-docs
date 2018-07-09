@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>5.7. Display · GitBook</title>
+        <title>5.5. Validator · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="DefaultRule.html" />
     
-    <link rel="prev" href="DefaultRule.html" />
+    
+    <link rel="prev" href="Rule.html" />
     
 
     </head>
@@ -296,7 +298,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.5" data-path="Validator.html">
+        <li class="chapter active" data-level="2.2.5" data-path="Validator.html">
             
                 <a href="Validator.html">
             
@@ -322,7 +324,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2.7" data-path="Display.html">
+        <li class="chapter " data-level="2.2.7" data-path="Display.html">
             
                 <a href="Display.html">
             
@@ -370,7 +372,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >5.7. Display</a>
+        <a href=".." >5.5. Validator</a>
     </h1>
 </div>
 
@@ -385,9 +387,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>FormFieldDisplay</p>
-<p>&#x7528;&#x4E8E;&#x63A7;&#x5236;Field&#x662F;&#x5426;&#x53EF;&#x89C1;&#xFF0C;&#x914D;&#x7F6E;&#x5728;Model&#x4E2D;</p>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> { notification } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
+                                <h1 id="validator">Validator</h1>
+<p>Validator&#x4E3B;&#x8981;&#x914D;&#x7F6E;&#x5728;Mode&#x4E2D;&#xFF0C;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;lib/fetch&apos;</span>;
+<span class="hljs-keyword">import</span> { notification } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;antd&apos;</span>;
 
 <span class="hljs-keyword">const</span> model = {
   namespace: <span class="hljs-string">&apos;page-form-1&apos;</span>,
@@ -397,21 +400,119 @@
       page_desc: <span class="hljs-string">&apos;aaaa&apos;</span>
     }
   },
-  formFieldDisplay: {
-    <span class="hljs-string">&apos;addForm&apos;</span>: {
-      <span class="hljs-string">&apos;page_type&apos;</span>: (getState, { field, value }) =&gt; {
-        <span class="hljs-built_in">console</span>.log(value);
+  validators: [{
+    formName: <span class="hljs-string">&apos;addForm&apos;</span>,
+    validators: [{
+      field: <span class="hljs-string">&apos;page_type&apos;</span>,
+      rules: <span class="hljs-string">&apos;required&apos;</span>
+    }, {
+      field: <span class="hljs-string">&apos;page_desc&apos;</span>,
+      rules: [<span class="hljs-string">&apos;required&apos;</span>, (getState, { field, value }, data) =&gt; {
+        <span class="hljs-keyword">return</span> value &amp;&amp; value.length &lt;= <span class="hljs-number">3</span>;
+      }],
+      help: <span class="hljs-string">&apos;&#x8BF7;&#x6B63;&#x786E;&#x586B;&#x5199;&apos;</span>
+    }, {
+      field: <span class="hljs-string">&apos;page_name&apos;</span>,
+      rules: [<span class="hljs-string">&apos;required@&#x597D;&#x597D;&#x586B;&apos;</span>, {
+        name: <span class="hljs-string">&apos;maxLength&apos;</span>,
+        data: <span class="hljs-number">4</span>,
+        help: <span class="hljs-string">&apos;maxLength:{0}&apos;</span>
+      }]
+    }, {
+      field: <span class="hljs-string">&apos;page_name&apos;</span>,
+      help: <span class="hljs-string">&apos;&#x5F02;&#x6B65;&#x6821;&#x9A8C;&#x5931;&#x8D25;&apos;</span>,
+      rules: {
+        data: { a: <span class="hljs-number">1</span> },
+        fn: <span class="hljs-keyword">async</span> (getState, { field, value }, data) =&gt; {
+          <span class="hljs-keyword">const</span> xdata = <span class="hljs-keyword">await</span> fetch({
+            url: <span class="hljs-string">&apos;/app/list&apos;</span>,
+            data: {
+            }
+          });
 
-        <span class="hljs-keyword">return</span> {
-          <span class="hljs-string">&apos;page_desc&apos;</span>: value === <span class="hljs-string">&apos;pc&apos;</span>
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
         }
       }
-    }
-  }
+    }]
+  }]
 }
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> model;
 </code></pre>
+<h2 id="validators&#x7684;&#x914D;&#x7F6E;">validators&#x7684;&#x914D;&#x7F6E;</h2>
+<ul>
+<li>&#x7C7B;&#x578B;&#xFF1A;&#x6570;&#x7EC4;</li>
+<li>validator.formName&#xFF1A;&#x8868;&#x5355;&#x540D;</li>
+<li>validator.validators&#xFF1A;&#x6821;&#x9A8C;&#x5668;&#xFF0C;&#x5355;&#x4E2A;&#x6821;&#x9A8C;&#x5668;&#x914D;&#x7F6E;&#x53C2;&#x89C1;&#x4E0B;&#x6587;&#x89E3;&#x91CA;</li>
+</ul>
+<h2 id="&#x5355;&#x4E2A;&#x6821;&#x9A8C;&#x5668;&#x914D;&#x7F6E;">&#x5355;&#x4E2A;&#x6821;&#x9A8C;&#x5668;&#x914D;&#x7F6E;</h2>
+<ul>
+<li>field&#xFF1A;&#x5B57;&#x6BB5;&#x540D;&#xFF0C;&#x4E0E;&#x8868;&#x5355;&#x7684;field&#x63A7;&#x4EF6;&#x4E2D;&#x7684;field&#x5C5E;&#x6027;&#x5BF9;&#x5E94;</li>
+<li>rules&#xFF1A;&#x53EF;&#x4EE5;&#x662F;&#x5355;&#x4E2A;&#x6821;&#x9A8C;&#x89C4;&#x5219;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x4E2A;&#x6821;&#x9A8C;&#x89C4;&#x5219;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x4F8B;&#x5982;<ul>
+<li><code>rules:&apos;reuired&apos;</code></li>
+<li><code>rules:[&apos;reuired&apos;,&apos;email&apos;]</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="rule&#x7684;&#x914D;&#x7F6E;&#x5F62;&#x6001;">rule&#x7684;&#x914D;&#x7F6E;&#x5F62;&#x6001;</h2>
+<h3 id="&#x6807;&#x51C6;&#x5199;&#x6CD5;">&#x6807;&#x51C6;&#x5199;&#x6CD5;</h3>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">{
+  name:<span class="hljs-string">&apos;required&apos;</span>,
+  help:{
+    error:<span class="hljs-string">&apos;&#x5FC5;&#x586B;&#xFF01;&apos;</span>
+  }
+}
+</code></pre>
+<h3 id="&#x5B57;&#x7B26;&#x4E32;">&#x5B57;&#x7B26;&#x4E32;</h3>
+<p><code>${express}:${data}@${help.error}</code></p>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">{
+  rules:<span class="hljs-string">&apos;range:2,3@&#x957F;&#x5EA6;&#x4ECB;&#x4E8E;{0}&#x5230;{1}&apos;</span>
+}
+</code></pre>
+<p>&#x8F6C;&#x6362;&#x6210;&#x6807;&#x51C6;&#x7684;rule&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-js">{
+  name:<span class="hljs-string">&apos;range&apos;</span>,
+  data:[<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],
+  help:<span class="hljs-string">&apos;&#x957F;&#x5EA6;&#x4ECB;&#x4E8E;{0}&#x5230;{1}&apos;</span>
+}
+</code></pre>
+<h3 id="&#x6B63;&#x5219;&#x7C7B;&#x578B;">&#x6B63;&#x5219;&#x7C7B;&#x578B;</h3>
+<p><code>/d+/g</code></p>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">{
+  rules:<span class="hljs-regexp">/d+/g</span>
+}
+</code></pre>
+<p>&#x8F6C;&#x6362;&#x6210;&#x6807;&#x51C6;rule&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-js">{
+  name:<span class="hljs-string">&apos;regexp&apos;</span>,
+  data:<span class="hljs-regexp">/d+/g</span>
+}
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5355;&#x4E2A;&#x6B63;&#x5219;&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#xFF0C;&#x4E0D;&#x80FD;&#x4F20;&#x5165;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x63D0;&#x793A;&#xFF0C;&#x6240;&#x4EE5;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5199;&#x6CD5;</p>
+</blockquote>
+<h3 id="function&#x7C7B;&#x578B;">function&#x7C7B;&#x578B;</h3>
+<p><code>function(getState,{field,value,formName},data){return false}</code></p>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-js">{
+  rules:(getState,{field,value,formName},data)=&gt;{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+}
+</code></pre>
+<p>&#x76F8;&#x5F53;&#x4E8E;</p>
+<pre><code class="lang-js">{
+  fn:(getState,{field,value,formName},data)=&gt;{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+}
+</code></pre>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5355;&#x4E2A;&#x6B63;&#x5219;&#x7684;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#xFF0C;&#x4E0D;&#x80FD;&#x4F20;&#x5165;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x63D0;&#x793A;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;fn&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x6765;&#x8FDB;&#x884C;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x8BBE;&#x7F6E;&#xFF0C;&#x6240;&#x4EE5;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5199;&#x6CD5;</p>
+</blockquote>
 
                                 
                                 </section>
@@ -439,10 +540,14 @@
 
             
                 
-                <a href="DefaultRule.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 5.6. 内置Rule">
+                <a href="Rule.html" class="navigation navigation-prev " aria-label="Previous page: 5.4. Rule">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="DefaultRule.html" class="navigation navigation-next " aria-label="Next page: 5.6. 内置Rule">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -451,7 +556,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.7. Display","level":"2.2.7","depth":2,"previous":{"title":"5.6. 内置Rule","level":"2.2.6","depth":2,"path":"kos-form/DefaultRule.md","ref":"./kos-form/DefaultRule.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/Display.md","mtime":"2018-07-09T04:07:18.478Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T04:08:57.852Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.5. Validator","level":"2.2.5","depth":2,"next":{"title":"5.6. 内置Rule","level":"2.2.6","depth":2,"path":"kos-form/DefaultRule.md","ref":"./kos-form/DefaultRule.md","articles":[]},"previous":{"title":"5.4. Rule","level":"2.2.4","depth":2,"path":"kos-form/Rule.md","ref":"./kos-form/Rule.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kos-form/Validator.md","mtime":"2018-07-09T04:07:18.481Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-09T12:15:52.320Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -459,10 +564,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
